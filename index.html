@@ -10,7 +10,7 @@
     <br><button id="B">Copy to clipboard</button>
   </body>
   <script>
-    document.getElementById("B").addEventListener(e=>{navigator.clipboard.writeText(parseInt(Date.now()/1000))});
+    document.getElementById("B").addEventListener("click",e=>{navigator.clipboard.writeText(parseInt(Date.now()/1000))});
     window.setInterval(e=>{document.getElementById("A").textContent=parseInt(Date.now()/1000)},1000);
   </script>
 </html>
