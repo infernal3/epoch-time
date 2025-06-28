@@ -58,7 +58,7 @@
     el("C").addEventListener("click",e=>{
       let temp;
       if(el("flag").value=="0") temp=Date.UTC(el("year").value,el("month").value,el("day").value,el("hour").value,el("minute").value,el("second").value);
-      else temp=new Date(el("year").value,el("month").value,el("day").value,el("hour").value,el("minute").value,el("second").value);
+      else temp=new Date(el("year").value,el("month").value,el("day").value,el("hour").value,el("minute").value,el("second").value).valueOf();
       temp = ""+temp || "Invalid input provided";
       el("D").textContent = temp;
     });
