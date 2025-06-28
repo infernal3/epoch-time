@@ -5,10 +5,12 @@
     <title>infernal3's epoch time</title>
   </head>
   <body>
-    Epoch time powered by JavaScript's builtin <pre>Date.now()</pre>.<br>
-    The current epoch time is <span id="A"></span>
+    Epoch time powered by JavaScript's builtin <span style="font-family: monospace;">Date.now()</span>.<br>
+    The current epoch time is <span id="A" style="padding: 3px; background: #888888;"></span>
+    <br><button id="B">Copy to clipboard</button>
   </body>
   <script>
+    document.getElementById("B").addEventListener(e=>{navigator.clipboard.writeText(parseInt(Date.now()/1000))});
     window.setInterval(e=>{document.getElementById("A").textContent=parseInt(Date.now()/1000)},1000);
   </script>
 </html>
