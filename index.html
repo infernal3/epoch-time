@@ -5,12 +5,12 @@
     <title>infernal3's epoch time</title>
   </head>
   <body>
-    <h1>Epoch Timestamp Tool</h1>
+    <h1>Epoch Timestamp Tool</h1><div>
     Epoch time powered by JavaScript's builtin <span style="font-family: monospace;">Date.now()</span>.<br>
     The current epoch time is <span id="A" style="padding: 3px; background: #888888;"></span>
-    <br><button id="B">Copy to clipboard</button>
+    <br><button id="B">Copy to clipboard</button></div>
     <br>
-    <br>
+    <br><div>
     <h2>Create a timestamp</h2>
     <label for="year">Year</label>
     <input id="year" name="year" type="number" min="1970" max="275000">
@@ -42,8 +42,8 @@
     <select id="flag" name="flag">
       <option value="0">UTC</option>
       <option value="1">Use local time</option>
-    </select>
-    <br>
+    </select></div>
+    <br><div>
     <button id="C">Create timestamp with selected values</button>
     <p id="D"></p>
     <button id="E">Copy to clipboard</button>
@@ -56,6 +56,7 @@
     <button id="F">Convert timestamp into date and time</button>
     <p id="G"></p>
     <button id="H">Copy to clipboard</button>
+    </div>
   </body>
   <script>
     const el=e=>document.getElementById(e);
