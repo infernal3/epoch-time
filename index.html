@@ -5,9 +5,48 @@
     <title>infernal3's epoch time</title>
   </head>
   <body>
+    <h1>Epoch Timestamp Tool</h1>
     Epoch time powered by JavaScript's builtin <span style="font-family: monospace;">Date.now()</span>.<br>
     The current epoch time is <span id="A" style="padding: 3px; background: #888888;"></span>
     <br><button id="B">Copy to clipboard</button>
+    <br>
+    <br>
+    <h2>Create a timestamp</h2>
+    <label for="year">Year</label>
+    <input id="year" name="year" type="number" min="1970">
+    <label for="month">Month</label>
+    <select id="month" name="month">
+      <option value="" selected>[select an option]</option>
+      <option value="0">January</option>
+      <option value="1">February</option>
+      <option value="2">March</option>
+      <option value="3">April</option>
+      <option value="4">May</option>
+      <option value="5">June</option>
+      <option value="6">July</option>
+      <option value="7">August</option>
+      <option value="8">September</option>
+      <option value="9">October</option>
+      <option value="10">November</option>
+      <option value="11">December</option>
+    </select>
+    <label for="day">Day</label>
+    <input id="day" name="day" type="number" min="0" max="30">
+    <label for="hour">Hour</label>
+    <input id="hour" name="hour" type="number" min="0" max="23">
+    <label for="minute">Minutes</label>
+    <input id="minute" name="minute" type="number" min="0" max="59">
+    <label for="second">Seconds</label>
+    <input id="second" name="second" type="number" min="0" max="59">
+    <label for="flag">Timezone option</label>
+    <select id="flag" name="flag">
+      <option>UTC</option>
+      <option>Use local time</option>
+    </select>
+    <!-- 
+    LOCAL: new Date(...).valueOf()
+    UTC: Date.UTC(...)
+    -->
   </body>
   <script>
     document.getElementById("B").addEventListener("click",e=>{navigator.clipboard.writeText(parseInt(Date.now()/1000))});
