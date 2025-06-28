@@ -58,7 +58,7 @@
     <button id="H">Copy to clipboard</button>
     </div>
   </body>
-  <script>
+  <script id="ignored">
     const el=e=>document.getElementById(e);
     el("B").addEventListener("click",e=>{navigator.clipboard.writeText(parseInt(Date.now()/1000))});
     el("C").addEventListener("click",e=>{
@@ -78,5 +78,6 @@
     });
     el("H").addEventListener("click",e=>{navigator.clipboard.writeText(el("G").textContent)});
     window.setInterval(e=>{el("A").textContent=parseInt(Date.now()/1000)},1000);
+    window.setTimeout(()=>{document.body.removeChild(el("ignored"))},1000);
   </script>
 </html>
