@@ -59,7 +59,8 @@
       let temp;
       if(el("flag").value=="0") temp=Date.UTC(el("year").value,el("month").value,el("day").value,el("hour").value,el("minute").value,el("second").value);
       else temp=new Date(el("year").value,el("month").value,el("day").value,el("hour").value,el("minute").value,el("second").value).valueOf();
-      temp = ""+(temp/1000) || "Invalid input provided";
+      temp = temp || "Invalid input provided";
+      if(temp!="Invalid input provided") temp=""+(temp/1000);
       el("D").textContent = temp;
     });
     el("E").addEventListener("click",e=>{navigator.clipboard.writeText(el("D").textContent)});
