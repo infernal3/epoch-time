@@ -70,7 +70,7 @@
     });
     el("E").addEventListener("click",e=>{navigator.clipboard.writeText(el("D").textContent)});
     el("F").addEventListener("click",e=>{
-      let temp=new Date(el("epoch").value),vi="The provided timestamp is invalid. Check your input.";
+      let temp=new Date(parseInt(el("epoch").value)),vi="The provided timestamp is invalid. Check your input.";
       if(isNaN(temp.getTime())) temp = vi;
       if(temp!=vi) temp=temp.toString();
       el("G").textContent=temp;
