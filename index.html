@@ -47,23 +47,35 @@
     <button id="C">Create timestamp with selected values</button>
     <p id="D"></p>
     <button id="E">Copy to clipboard</button>
-    <!-- 
-    LOCAL: new Date(...).valueOf()
-    UTC: Date.UTC(...)
-    -->
+    <br>
+    <br>
+    <h2>Parse a timestamp</h2>
+    <label for="epoch">Input epoch timestamp (seconds)</label>
+    <input id="epoch" name="epoch" type="number" min="0">
+    <br>
+    <button id="F">Convert timestamp into date and time</button>
+    <p id="G"></p>
+    <button id="H">Copy to clipboard</button>
   </body>
   <script>
     const el=e=>document.getElementById(e);
     el("B").addEventListener("click",e=>{navigator.clipboard.writeText(parseInt(Date.now()/1000))});
     el("C").addEventListener("click",e=>{
-      let temp;
+      let temp,vi="One or more inputs are invalid. Check your inputs.";
       if(el("flag").value=="0") temp=Date.UTC(el("year").value,el("month").value,el("day").value,el("hour").value,el("minute").value,el("second").value);
       else temp=new Date(el("year").value,el("month").value,el("day").value,el("hour").value,el("minute").value,el("second").value).valueOf();
-      temp = temp || "Invalid input provided";
-      if(temp!="Invalid input provided") temp=""+(temp/1000);
+      temp = isNaN(temp) ? vi : temp;
+      if(temp!=vi) temp=""+(temp/1000);
       el("D").textContent = temp;
     });
     el("E").addEventListener("click",e=>{navigator.clipboard.writeText(el("D").textContent)});
+    el("F").addEventListener("click",e=>{
+      let temp=new Date(el("epoch").value),vi="The provided timestamp is invalid. Check your input.";
+      if(isNaN(temp.getTime())) temp = vi;
+      if(temp!=vi) temp=temp.toString();
+      el("G").textContent=temp;
+    });
+    el("H").addEventListener("click",e=>{navigator.clipboard.writeText(el("G").textContent)});
     window.setInterval(e=>{el("A").textContent=parseInt(Date.now()/1000)},1000);
   </script>
 </html>
