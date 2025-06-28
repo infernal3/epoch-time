@@ -40,16 +40,29 @@
     <input id="second" name="second" type="number" min="0" max="59">
     <label for="flag">Timezone option</label>
     <select id="flag" name="flag">
-      <option>UTC</option>
-      <option>Use local time</option>
+      <option value="0">UTC</option>
+      <option value="1">Use local time</option>
     </select>
+    <br>
+    <button id="C">Create timestamp with selected values</button>
+    <p id="D"></p>
+    <button id="E">Copy to clipboard</button>
     <!-- 
     LOCAL: new Date(...).valueOf()
     UTC: Date.UTC(...)
     -->
   </body>
   <script>
-    document.getElementById("B").addEventListener("click",e=>{navigator.clipboard.writeText(parseInt(Date.now()/1000))});
-    window.setInterval(e=>{document.getElementById("A").textContent=parseInt(Date.now()/1000)},1000);
+    const el=e=>document.getElementById(e);
+    el("B").addEventListener("click",e=>{navigator.clipboard.writeText(parseInt(Date.now()/1000))});
+    el("C").addEventListener("click",e=>{
+      let temp;
+      if(el("flag").value=="0") temp=Date.UTC(el("year").value,el("month").value,el("day").value,el("hour").value,el("minute").value,el("second").value);
+      else temp=new Date(el("year").value,el("month").value,el("day").value,el("hour").value,el("minute").value,el("second").value);
+      temp = ""+temp || "Invalid input provided";
+      el("D").textContent = temp;
+    });
+    el("E").addEventListener("click",e=>{navigator.clipboard.writeText(el("D").textContent)});
+    window.setInterval(e=>{el("A").textContent=parseInt(Date.now()/1000)},1000);
   </script>
 </html>
