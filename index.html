@@ -65,6 +65,11 @@
   </body>
   <script id="ignored">
     const el=e=>document.getElementById(e);
+    el("year").value = "1970";
+    el("day").value = "1";
+    el("hour").value = "0";
+    el("minute").value = "0";
+    el("seconds").value = "0";
     el("B").addEventListener("click",e=>{navigator.clipboard.writeText(parseInt(Date.now()/1000))});
     el("C").addEventListener("click",e=>{
       let temp,vi="One or more inputs are invalid. Check your inputs.";
